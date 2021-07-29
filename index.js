@@ -74,12 +74,12 @@ const prompts = (role) => {
         type: "input",
         name: "email",
         message: `Enter ${role}'s email.`,
-        validate: (emailInput) => {
-          if (emailInput) {
+        validate: function (email) {
+          let check = email.match(/\S+@\S+\.\S+/g);
+          if (check) {
             return true;
-          } else {
-            console.log(`Please enter ${role}'s email!`);
           }
+          return "Please enter a valid email.";
         },
       },
       {
