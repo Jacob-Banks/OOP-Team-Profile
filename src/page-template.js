@@ -1,4 +1,5 @@
 const fillCards = (team) => {
+  //make manager bootsrap card use constructor functions to get data
   const fillManager = (manager) => {
     return `    
         <div class="card my-3" style="width: 18rem;">
@@ -15,6 +16,7 @@ const fillCards = (team) => {
         </div>
         </div>`;
   };
+  //make eengineer bootsrap card use constructor functions to get data
   const fillEngineer = (engineer) => {
     return `
           <div class="card my-3" style="width: 18rem;">
@@ -32,6 +34,7 @@ const fillCards = (team) => {
            </div>
           </div>`;
   };
+  //make intern bootsrap card use constructor functions to get data
   const fillIntern = (intern) => {
     return `
             <div class="card my-3" style="width: 18rem;">
@@ -48,28 +51,32 @@ const fillCards = (team) => {
               </div>
             </div>`;
   };
-
+  //array holding cards
   const html = [];
+  //look for manager make card push to array
   html.push(
     team
       .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => fillManager(manager))
   );
+  //look for engineers make cards push to array
   html.push(
     team
       .filter((employee) => employee.getRole() === "Engineer")
       .map((engineer) => fillEngineer(engineer))
       .join("")
   );
+  //look for interns make cards push to array
   html.push(
     team
       .filter((employee) => employee.getRole() === "Intern")
       .map((intern) => fillIntern(intern))
       .join("")
   );
+  //return the html of all employees
   return html.join("");
 };
-
+//export base html and use fillcards function to gererate employees
 module.exports = (team) => {
   return `
   <!DOCTYPE html>

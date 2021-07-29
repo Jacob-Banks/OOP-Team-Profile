@@ -31,6 +31,7 @@ const writeFile = (fileContent) => {
 
 //get data for constuctors
 const prompts = (role) => {
+  //set uniques value bassed on job role
   let unique;
   switch (role) {
     case "Manager":
@@ -47,6 +48,7 @@ const prompts = (role) => {
   return inquirer
     .prompt([
       {
+        //get name
         type: "input",
         name: "name",
         message: `Enter ${role}'s name.`,
@@ -59,6 +61,7 @@ const prompts = (role) => {
         },
       },
       {
+        //get id
         type: "input",
         name: "id",
         message: `Enter ${role}'s ID.`,
@@ -71,6 +74,7 @@ const prompts = (role) => {
         },
       },
       {
+        //get email
         type: "input",
         name: "email",
         message: `Enter ${role}'s email.`,
@@ -83,6 +87,7 @@ const prompts = (role) => {
         },
       },
       {
+        // get office/school/github
         type: "input",
         name: "unique",
         message: `Enter ${role}'s ${unique}.`,
@@ -95,6 +100,7 @@ const prompts = (role) => {
         },
       },
       {
+        //get what to do next
         type: "list",
         name: "nextEmployee",
         message: "What type of employee would you like to add to your team?",
@@ -103,6 +109,7 @@ const prompts = (role) => {
     ])
     .then((data) => {
       const { name, id, email, unique, nextEmployee } = data;
+      //pass data to constucters push that class into team array
       switch (role) {
         case "Manager":
           const manager = new Manager(name, id, email, unique);
@@ -117,7 +124,7 @@ const prompts = (role) => {
           team.push(intern);
           break;
       }
-
+      //do the next option pass correct role to prompts or make index.html
       if (nextEmployee === "Engineer") {
         return prompts("Engineer");
       } else if (nextEmployee === "Intern") {
@@ -136,4 +143,5 @@ const prompts = (role) => {
       }
     });
 };
+//run prompts
 prompts("Manager");
