@@ -90,7 +90,7 @@ const prompts = (role) => {
           if (idInput) {
             return true;
           } else {
-            console.log(`Please enter ${role}'s ID!`);
+            console.log(`Please enter ${role}'s ${unique}!`);
           }
         },
       },
@@ -98,7 +98,7 @@ const prompts = (role) => {
         type: "list",
         name: "nextEmployee",
         message: "What type of employee would you like to add to your team?",
-        choices: ["Engineer", "Intern", "Finissheed building team"],
+        choices: ["Engineer", "Intern", "Finished entering my team"],
       },
     ])
     .then((data) => {
@@ -123,7 +123,15 @@ const prompts = (role) => {
       } else if (nextEmployee === "Intern") {
         return prompts("Intern");
       } else {
-        console.log("finished", team);
+        console.log(`
+          ====================================================================
+          ==                                                                ==
+          ==      Your team web page can be found in the dist folder.       ==
+          ==                                                                ==
+          ====================================================================
+                              This is your team:
+                              `);
+        console.table(team);
         writeFile(generatePage(team));
       }
     });
