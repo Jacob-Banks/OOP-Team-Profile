@@ -19,14 +19,14 @@ const fillCards = (team) => {
     return `
           <div class="card" style="width: 18rem;">
             <div class="card-header text-white bg-primary">
-              <h1 class="card-title ">${engineer.getName()}</h1>
-              <h2 class="card-subtitle mb-2 "><i class="fas fa-glasses"></i>  ${engineer.getRole()}</h2>
+              <h2 class="card-title ">${engineer.getName()}</h2>
+              <h3 class="card-subtitle mb-2 "><i class="fas fa-glasses"></i>  ${engineer.getRole()}</h3>
             </div>
             <div class="card-body">
             <ul class="list-group border list-group-flush">
                   <li class="list-group-item">ID : ${engineer.getId()}</li>
                   <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                  <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGitHub()}"> ${engineer.getGithub()}</a></li>
+                  <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGitHub()}"> ${engineer.getGitHub()}</a></li>
                 </ul>  
             
            </div>
@@ -36,37 +36,40 @@ const fillCards = (team) => {
     return `
             <div class="card" style="width: 18rem;">
               <div class="card-header text-white bg-primary">
-                <h1 class="card-title ">${intern.getName()}</h1>
-                <h2 class="card-subtitle mb-2 "><i class="fas fa-user-graduate"></i>  ${intern.getRole()}</h2>
+                <h2 class="card-title ">${intern.getName()}</h2>
+                <h3 class="card-subtitle mb-2 "><i class="fas fa-user-graduate"></i>  ${intern.getRole()}</h3>
               </div>
               <div class="card-body">
                 <ul class="list-group border list-group-flush">
                   <li class="list-group-item">ID : ${intern.getId()}</li>
                   <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-                  <li class="list-group-item">School: ${unique}</li>
+                  <li class="list-group-item">School: ${intern.getSchool()}</li>
                 </ul>  
               </div>
             </div>`;
   };
+
+  const html = [];
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Manager")
+      .map((manager) => fillManager(manager))
+  );
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Engineer")
+      .map((engineer) => fillEngineer(engineer))
+      .join("")
+  );
+  html.push(
+    team
+      .filter((employee) => employee.getRole() === "Intern")
+      .map((intern) => fillIntern(intern))
+      .join("")
+  );
+  return html.join("");
 };
-const html = [];
-html.push(
-  team
-    .filter((employee) => employee.getRole() === "Manager")
-    .map((manager) => fillManager(manager))
-);
-html.push(
-  team
-    .filter((employee) => employee.getRole() === "Engineer")
-    .map((engineer) => fillEngineer(engineer))
-    .join("")
-);
-html.push(
-  team
-    .filter((employee) => employee.getRole() === "Intern")
-    .map((intern) => fillIntern(intern))
-    .join("")
-);
+
 module.exports = (team) => {
   return `
   <!DOCTYPE html>

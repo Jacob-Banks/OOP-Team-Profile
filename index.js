@@ -1,14 +1,35 @@
 // node modules
 const inquirer = require("inquirer");
-
+const fs = require("fs");
 // employee classes
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+//page template
+const generatePage = require("./src/page-template");
+
 //team array
 const team = [];
 
+// writing files
+const writeFile = (fileContent) => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("./dist/index.html", fileContent, (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true,
+        message: "File created!",
+      });
+    });
+  });
+};
+
+//get data for constuctors
 const prompts = (role) => {
   let unique;
   switch (role) {
@@ -103,6 +124,7 @@ const prompts = (role) => {
         return prompts("Intern");
       } else {
         console.log("finished", team);
+        writeFile(generatePage(team));
       }
     });
 };
