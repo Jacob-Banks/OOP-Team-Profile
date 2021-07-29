@@ -26,7 +26,7 @@ Clone this repo, insure node is installed on your computer, install inquirer and
 
 Once set up just type in command line "node index.js" and answer all the prompts!
 ![screenshot1](./img/terminal.png)
-Watch a video demo here: https://drive.google.com/file/d/1aoa-WumL7p75ILNg9z4d3-5tTnBzGZsj/view?usp=sharing
+Watch a video demo here: https://drive.google.com/file/d/1bd-NmOSVe06TvRy2DhJjno22TKPt6Ek6/view?usp=sharing
 
 ## Credits
 
