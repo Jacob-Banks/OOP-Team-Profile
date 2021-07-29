@@ -6,7 +6,7 @@
 
 ## Description
 
-This app will create a Team Page! Just Answer a few prompts and viola a brand new webpage!
+This app will creates a Team Page! Just Answer a few prompts and viola a brand new webpage!
 
 ## Table of Contents
 
