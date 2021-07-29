@@ -1,8 +1,8 @@
 # Team page Generator
 
 ![GitHub](https://img.shields.io/github/license/jacob-banks/OOP-Team-Profile)
-![GitHub language count](https://img.shields.io/github/languages/count/jacob-banks/README-Genrator)
-![GitHub top language](https://img.shields.io/github/languages/top/jacob-banks/README-Genrator)
+![GitHub language count](https://img.shields.io/github/languages/count/jacob-banks/OOP-Team-Profile)
+![GitHub top language](https://img.shields.io/github/languages/top/jacob-banks/OOP-Team-Profile)
 
 ## Description
 
