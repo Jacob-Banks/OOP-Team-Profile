@@ -1,0 +1,26 @@
+{
+  "name": "oop-team-profile",
+  "version": "1.0.0",
+  "description": "create team profile page with node",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacob-Banks/OOP-Team-Profile.git"
+  },
+  "author": "Jacob-banks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jacob-Banks/OOP-Team-Profile/issues"
+  },
+  "homepage": "https://github.com/Jacob-Banks/OOP-Team-Profile#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "jest": "^27.0.6"
+  }
+}
